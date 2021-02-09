@@ -27,8 +27,13 @@ public class BibliotecaApp {
         var menuOptions = bibliotecaPresenter.GetMenuOptions();
 
         for (var menuOption: menuOptions) {
+            printEmptyLine();
            System.out.println(menuOption.getId() + " - " + menuOption.getDescription());
         }
+    }
+
+    static void printEmptyLine() {
+        System.out.println();
     }
 
 }

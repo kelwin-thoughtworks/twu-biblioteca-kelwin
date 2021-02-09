@@ -5,7 +5,8 @@ import com.twu.biblioteca.presenter.BibliotecaPresenter;
 import com.twu.biblioteca.presenter.IBibliotecaPresenter;
 import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+
+
 
 public class BibliotecaPresenterTest {
 
@@ -18,9 +19,11 @@ public class BibliotecaPresenterTest {
     }
 
     @Test
-    public void ShouldReturnMenuOptions() {
+    public void ShouldHaveListOfBooksWhenReturnMenuOptionList() {
         var menuOptions = bibliotecaPresenter.GetMenuOptions();
 
-        Assert.assertNotNull(menuOptions);
+        var searchOption = menuOptions.stream().filter(menuOption -> menuOption.getDescription().equals("List Of Books")).findFirst().get();
+
+        Assert.assertNotNull(searchOption);
     }
 }
