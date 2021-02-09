@@ -9,14 +9,18 @@ import static org.junit.Assert.assertEquals;
 
 public class BibliotecaPresenterTest {
 
+    private final IBibliotecaPresenter bibliotecaPresenter = new BibliotecaPresenter();
+
     @Test
     public void ShouldReturnWelcomeMessage() {
-
-        IBibliotecaPresenter bibliotecaPresenter = new BibliotecaPresenter();
-
         String message = bibliotecaPresenter.GetWelcomeMessage();
-
         Assert.assertEquals(message, "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
+    }
 
+    @Test
+    public void ShouldReturnMenuOptions() {
+        var menuOptions = bibliotecaPresenter.GetMenuOptions();
+
+        Assert.assertNotNull(menuOptions);
     }
 }

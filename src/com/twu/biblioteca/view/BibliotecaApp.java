@@ -15,10 +15,20 @@ public class BibliotecaApp {
 
     static void startApp() {
         showWelcomeMessage();
+
+        showMenuOptions();
     }
 
     static void showWelcomeMessage() {
         System.out.println(bibliotecaPresenter.GetWelcomeMessage());
+    }
+
+    static void showMenuOptions() {
+        var menuOptions = bibliotecaPresenter.GetMenuOptions();
+
+        for (var menuOption: menuOptions) {
+           System.out.println(menuOption.getId() + " - " + menuOption.getDescription());
+        }
     }
 
 }
