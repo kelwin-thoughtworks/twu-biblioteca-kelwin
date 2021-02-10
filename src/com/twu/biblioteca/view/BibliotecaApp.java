@@ -28,6 +28,8 @@ public class BibliotecaApp {
         var menuOptions = bibliotecaPresenter.GetMenuOptions();
 
         printEmptyLine();
+        System.out.println("Menu");
+        printEmptyLine();
 
         for (var menuOption: menuOptions) {
             System.out.println(menuOption.getId() + " - " + menuOption.getDescription());
@@ -59,6 +61,9 @@ public class BibliotecaApp {
             case SHOW_BOOKS:
                 showBooks();
                 break;
+            case CHECKOUT_BOOK:
+                checkoutBook();
+                break;
             default:
         }
     }
@@ -70,8 +75,21 @@ public class BibliotecaApp {
 
         printEmptyLine();
         for (var book: books) {
-            System.out.println(book.getName() + " - " + book.getAuthors().stream().findFirst().get().getName() + " - " + book.getReleaseDate());
+            System.out.println(book.getId() + " - " +
+                    book.getName() + " - " +
+                    book.getAuthors().stream().findFirst().get().getName() + " - " +
+                    book.getReleaseDate());
         }
+
+        showMenuOptions();
+    }
+
+    static void checkoutBook() {
+
+        System.out.println("Enter Book Id");
+        int bookId = readInput.nextInt();
+
+        bibliotecaPresenter.CheckoutBook(bookId);
 
         showMenuOptions();
     }
@@ -85,7 +103,8 @@ public class BibliotecaApp {
     }
 
     enum MenuOptionEnum {
-        SHOW_BOOKS
+        SHOW_BOOKS,
+        CHECKOUT_BOOK
     }
 
 

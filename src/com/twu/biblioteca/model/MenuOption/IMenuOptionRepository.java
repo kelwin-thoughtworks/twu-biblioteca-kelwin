@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface IMenuOptionRepository {
 
-    List<MenuOption> getMenuOptions();
+    List<MenuOption> GetMenuOptions();
 }

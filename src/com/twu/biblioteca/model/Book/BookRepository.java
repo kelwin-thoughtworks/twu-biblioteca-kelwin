@@ -8,35 +8,49 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookRepository implements IBookRepository{
 
     private List<Book> books = new ArrayList<>();
 
     public BookRepository() {
-        generateList();
+        GenerateList();
     }
 
     @Override
-    public List<Book> getBooks() {
+    public List<Book> GetBooks() {
         return books;
     }
 
-    private List<Book> generateList() {
+    @Override
+    public boolean CheckoutBook(int bookId) {
+
+        var checkoutBook = books.stream().filter(book -> book.getId() == bookId).findFirst().orElse(null);
+
+        if(checkoutBook != null) {
+            checkoutBook.Availability = false;
+            return true;
+        }
+
+        return false;
+    }
+
+    private List<Book> GenerateList() {
         List<Author> authors = new ArrayList<>();
 
         authors.add(new Author("Yuval Noah Harari"));
-        books.add(new Book("Sapiens: A Brief History of Humankind", authors, LocalDate.of( 2014 , Month.JANUARY , 1 )));
+        books.add(new Book(1,"Sapiens: A Brief History of Humankind", authors, LocalDate.of( 2014 , Month.JANUARY , 1 )));
 
         authors.clear();
 
         authors.add(new Author("Lionel Shriver"));
-        books.add(new Book("We Need To Talk About Kevin", authors, LocalDate.of( 2003 , Month.APRIL , 1 )));
+        books.add(new Book(2,"We Need To Talk About Kevin", authors, LocalDate.of( 2003 , Month.APRIL , 1 )));
 
         authors.clear();
 
         authors.add(new Author("Trevor Noah"));
-        books.add(new Book("Born a Crime", authors, LocalDate.of( 2015 , Month.JULY , 1 )));
+        books.add(new Book(3,"Born a Crime", authors, LocalDate.of( 2015 , Month.JULY , 1 )));
 
         return books;
     }

@@ -12,7 +12,7 @@ public class MenuOptionRepositoryTest {
     public void ShouldHaveListOfBooksWhenReturnMenuOptionList() {
         IMenuOptionRepository menuOptionRepository = new MenuOptionRepository();
 
-        var result = menuOptionRepository.getMenuOptions();
+        var result = menuOptionRepository.GetMenuOptions();
         var searchOption = result.stream().filter(menuOption -> menuOption.getDescription().equals("List Of Books")).findFirst().get();
 
         assertNotNull(searchOption);

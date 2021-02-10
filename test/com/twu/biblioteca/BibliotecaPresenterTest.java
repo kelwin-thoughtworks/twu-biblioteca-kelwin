@@ -56,12 +56,19 @@ public class BibliotecaPresenterTest {
 
         List<Author> authors = new ArrayList<>();
         authors.add(new Author("Yuval Noah Harari"));
-        var book = new Book("Sapiens: A Brief History of Humankind", authors, LocalDate.of( 2014 , Month.JANUARY , 1 ));
+        var book = new Book(1,"Sapiens: A Brief History of Humankind", authors, LocalDate.of( 2014 , Month.JANUARY , 1 ));
 
         var result = bibliotecaPresenter.GetBooks();
         var firstBook = result.stream().findFirst().get();
 
         Assert.assertEquals(firstBook.getAuthors().stream().findFirst().get().getName(), firstBook.getAuthors().stream().findFirst().get().getName());
         Assert.assertEquals(firstBook.getReleaseDate(), firstBook.getReleaseDate());
+    }
+
+    @Test
+    public void ShouldCheckoutABook() {
+        var result = bibliotecaPresenter.CheckoutBook(1);
+
+        Assert.assertTrue(result);
     }
 }

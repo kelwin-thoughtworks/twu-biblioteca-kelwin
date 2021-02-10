@@ -7,7 +7,7 @@ import java.util.List;
 public class MenuOptionRepository implements IMenuOptionRepository {
 
     @Override
-    public List<MenuOption> getMenuOptions() {
+    public List<MenuOption> GetMenuOptions() {
         List<MenuOption> menuOptions = new ArrayList<MenuOption>();
 
         menuOptions.add(new MenuOption(1,"List Of Books"));

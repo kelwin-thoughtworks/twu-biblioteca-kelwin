@@ -7,9 +7,19 @@ import java.util.Date;
 import java.util.List;
 
 public class Book {
+    int Id;
     String Name;
     List<Author> Authors;
     LocalDate ReleaseDate;
+    boolean Availability;
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
 
     public String getName() {
         return Name;
@@ -35,9 +45,19 @@ public class Book {
         ReleaseDate = releaseDate;
     }
 
-    public Book(String name, List<Author> authors, LocalDate releaseDate) {
+    public boolean getAvailability() {
+        return Availability;
+    }
+
+    public void setAvailability(boolean availability) {
+        Availability = availability;
+    }
+
+    public Book(int id, String name, List<Author> authors, LocalDate releaseDate) {
+        Id = id;
         Name = name;
         Authors = authors;
         ReleaseDate = releaseDate;
+        Availability = true;
     }
 }

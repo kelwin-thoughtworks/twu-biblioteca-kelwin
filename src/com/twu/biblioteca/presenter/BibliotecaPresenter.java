@@ -8,6 +8,7 @@ import com.twu.biblioteca.model.MenuOption.MenuOption;
 import com.twu.biblioteca.model.MenuOption.MenuOptionRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BibliotecaPresenter implements IBibliotecaPresenter {
 
@@ -21,12 +22,12 @@ public class BibliotecaPresenter implements IBibliotecaPresenter {
 
     @Override
     public List<MenuOption> GetMenuOptions() {
-        return menuOptionRepository.getMenuOptions();
+        return menuOptionRepository.GetMenuOptions();
     }
 
     @Override
     public String CheckIfOptionIsValid(int option) {
-        var menuOptions = menuOptionRepository.getMenuOptions();
+        var menuOptions = menuOptionRepository.GetMenuOptions();
         var searchOption = menuOptions.stream().filter(menuOption -> menuOption.getId() == option).findFirst().orElse(null);
 
         if(searchOption == null) {
@@ -38,7 +39,12 @@ public class BibliotecaPresenter implements IBibliotecaPresenter {
 
     @Override
     public List<Book> GetBooks() {
-        return bookRepository.getBooks();
+        return bookRepository.GetBooks().stream().filter(book -> book.getAvailability() == true).collect(Collectors.toList());
+    }
+
+    @Override
+    public boolean CheckoutBook(int bookId) {
+        return bookRepository.CheckoutBook(bookId);
     }
 }
 
