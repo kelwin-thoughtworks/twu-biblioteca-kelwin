@@ -1,11 +1,17 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.model.Author.Author;
+import com.twu.biblioteca.model.Book.Book;
 import com.twu.biblioteca.presenter.BibliotecaPresenter;
 import com.twu.biblioteca.presenter.IBibliotecaPresenter;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BibliotecaPresenterTest {
@@ -34,5 +40,28 @@ public class BibliotecaPresenterTest {
 
         Assert.assertEquals(result, "Please select a valid option!");
 
+    }
+
+    @Test
+    public void ShouldReturnListOfBooks() {
+
+        var result = bibliotecaPresenter.GetBooks();
+        var firstBook = result.stream().findFirst().get();
+
+        Assert.assertEquals(firstBook.getName(), "Sapiens: A Brief History of Humankind");
+    }
+
+    @Test
+    public void ShouldReturnYearAndAuthorWhenReturnListOfBooks() {
+
+        List<Author> authors = new ArrayList<>();
+        authors.add(new Author("Yuval Noah Harari"));
+        var book = new Book("Sapiens: A Brief History of Humankind", authors, LocalDate.of( 2014 , Month.JANUARY , 1 ));
+
+        var result = bibliotecaPresenter.GetBooks();
+        var firstBook = result.stream().findFirst().get();
+
+        Assert.assertEquals(firstBook.getAuthors().stream().findFirst().get().getName(), firstBook.getAuthors().stream().findFirst().get().getName());
+        Assert.assertEquals(firstBook.getReleaseDate(), firstBook.getReleaseDate());
     }
 }

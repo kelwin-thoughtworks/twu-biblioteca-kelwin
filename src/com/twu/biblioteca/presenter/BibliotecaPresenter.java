@@ -1,5 +1,8 @@
 package com.twu.biblioteca.presenter;
 
+import com.twu.biblioteca.model.Book.Book;
+import com.twu.biblioteca.model.Book.BookRepository;
+import com.twu.biblioteca.model.Book.IBookRepository;
 import com.twu.biblioteca.model.MenuOption.IMenuOptionRepository;
 import com.twu.biblioteca.model.MenuOption.MenuOption;
 import com.twu.biblioteca.model.MenuOption.MenuOptionRepository;
@@ -9,6 +12,7 @@ import java.util.List;
 public class BibliotecaPresenter implements IBibliotecaPresenter {
 
     IMenuOptionRepository menuOptionRepository = new MenuOptionRepository();
+    IBookRepository bookRepository = new BookRepository();
 
     @Override
     public String GetWelcomeMessage() {
@@ -30,6 +34,11 @@ public class BibliotecaPresenter implements IBibliotecaPresenter {
         }
 
         return null;
+    }
+
+    @Override
+    public List<Book> GetBooks() {
+        return bookRepository.getBooks();
     }
 }
 

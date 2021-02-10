@@ -21,7 +21,7 @@ public class MenuOption {
     }
 
     public MenuOption(int id, String description) {
-        this.id = id;
-        this.description = description;
+        this.setId(id) ;
+        this.setDescription(description);
     }
 }

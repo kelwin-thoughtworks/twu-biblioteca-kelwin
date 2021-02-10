@@ -32,10 +32,10 @@ public class BibliotecaApp {
            System.out.println(menuOption.getId() + " - " + menuOption.getDescription());
         }
 
-        selectMenuOption();
+        enterMenuOption();
     }
 
-    static void selectMenuOption() {
+    static void enterMenuOption() {
         printEmptyLine();
 
         System.out.println("Select an Option");
@@ -48,6 +48,29 @@ public class BibliotecaApp {
             System.out.println(checkIfOptionIsValid);
         }
 
+        selectMenuOption(MenuOptionEnum.values()[selectedOption - 1]);
+
+    }
+
+    static void selectMenuOption(MenuOptionEnum menuOption) {
+
+        switch (menuOption) {
+            case SHOW_BOOKS:
+                showBooks();
+                break;
+            default:
+        }
+    }
+
+    static void showBooks() {
+
+        printEmptyLine();
+        var books = bibliotecaPresenter.GetBooks();
+
+        printEmptyLine();
+        for (var book: books) {
+            System.out.println(book.getName() + " - " + book.getAuthors().stream().findFirst().get().getName() + " - " + book.getReleaseDate());
+        }
     }
 
     static void printEmptyLine() {
@@ -57,5 +80,10 @@ public class BibliotecaApp {
     static void clearScreen() {
 
     }
+
+    enum MenuOptionEnum {
+        SHOW_BOOKS
+    }
+
 
 }
