@@ -7,24 +7,24 @@ import java.util.Scanner;
 
 public class BibliotecaApp {
 
-    public static IBibliotecaPresenter bibliotecaPresenter = new BibliotecaPresenter();
-    public static Scanner readInput = new Scanner(System.in);
+    public IBibliotecaPresenter bibliotecaPresenter = new BibliotecaPresenter();
+    public Scanner readInput = new Scanner(System.in);
 
     public static void main(String[] args) {
-        startApp();
+        BibliotecaApp bibliotecaApp = new BibliotecaApp();
+        bibliotecaApp.startApp();
     }
 
-    static void startApp() {
+    void startApp() {
         showWelcomeMessage();
-
         showMenuOptions();
     }
 
-    static void showWelcomeMessage() {
+    void showWelcomeMessage() {
         System.out.println(bibliotecaPresenter.GetWelcomeMessage());
     }
 
-    static void showMenuOptions() {
+    void showMenuOptions() {
         var menuOptions = bibliotecaPresenter.GetMenuOptions();
 
         printEmptyLine();
@@ -38,7 +38,7 @@ public class BibliotecaApp {
         enterMenuOption();
     }
 
-    static void enterMenuOption() {
+    void enterMenuOption() {
         printEmptyLine();
 
         System.out.println("Select an Option");
@@ -55,7 +55,7 @@ public class BibliotecaApp {
 
     }
 
-    static void selectMenuOption(MenuOptionEnum menuOption) {
+    void selectMenuOption(MenuOptionEnum menuOption) {
 
         switch (menuOption) {
             case SHOW_BOOKS:
@@ -74,7 +74,7 @@ public class BibliotecaApp {
         }
     }
 
-    static void showBooks() {
+    void showBooks() {
 
         printEmptyLine();
         var books = bibliotecaPresenter.GetBooks();
@@ -90,7 +90,7 @@ public class BibliotecaApp {
         showMenuOptions();
     }
 
-    static void checkoutBook() {
+    void checkoutBook() {
 
         System.out.println("Enter Book Id");
         int bookId = readInput.nextInt();
@@ -102,7 +102,7 @@ public class BibliotecaApp {
         showMenuOptions();
     }
 
-    static void returnBook() {
+    void returnBook() {
 
         System.out.println("Enter Book Id");
         int bookId = readInput.nextInt();
@@ -114,11 +114,11 @@ public class BibliotecaApp {
         showMenuOptions();
     }
 
-    static void printEmptyLine() {
+    void printEmptyLine() {
         System.out.println();
     }
 
-    static void clearScreen() {
+    void clearScreen() {
 
     }
 
