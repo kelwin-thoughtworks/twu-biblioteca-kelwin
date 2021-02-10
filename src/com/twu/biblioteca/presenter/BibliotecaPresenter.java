@@ -43,8 +43,12 @@ public class BibliotecaPresenter implements IBibliotecaPresenter {
     }
 
     @Override
-    public boolean CheckoutBook(int bookId) {
-        return bookRepository.CheckoutBook(bookId);
+    public String CheckoutBook(int bookId) {
+        if(bookRepository.CheckoutBook(bookId)) {
+            return "Thank you! Enjoy the book";
+        };
+
+        return null;
     }
 }
 

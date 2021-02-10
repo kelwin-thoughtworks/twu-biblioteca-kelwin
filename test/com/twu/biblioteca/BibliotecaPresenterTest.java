@@ -69,6 +69,17 @@ public class BibliotecaPresenterTest {
     public void ShouldCheckoutABook() {
         var result = bibliotecaPresenter.CheckoutBook(1);
 
-        Assert.assertTrue(result);
+        Assert.assertNotNull(result);
     }
+
+    @Test
+    public void ShouldReturnSuccessMessageWhenCheckoutABook() {
+        int bookId = 1;
+
+        var result = bibliotecaPresenter.CheckoutBook(bookId);
+
+        Assert.assertEquals(result, "Thank you! Enjoy the book");
+    }
+
+
 }
