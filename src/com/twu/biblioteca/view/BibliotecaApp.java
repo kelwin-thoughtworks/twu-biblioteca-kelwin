@@ -67,6 +67,9 @@ public class BibliotecaApp {
             case RETURN_BOOK:
                 returnBook();
                 break;
+            case QUIT_APPLICATION:
+                System.exit(0);
+                break;
             default:
         }
     }
@@ -122,7 +125,8 @@ public class BibliotecaApp {
     enum MenuOptionEnum {
         SHOW_BOOKS,
         CHECKOUT_BOOK,
-        RETURN_BOOK
+        RETURN_BOOK,
+        QUIT_APPLICATION
     }
 
 
