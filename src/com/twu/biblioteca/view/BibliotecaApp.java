@@ -64,6 +64,9 @@ public class BibliotecaApp {
             case CHECKOUT_BOOK:
                 checkoutBook();
                 break;
+            case RETURN_BOOK:
+                returnBook();
+                break;
             default:
         }
     }
@@ -96,6 +99,18 @@ public class BibliotecaApp {
         showMenuOptions();
     }
 
+    static void returnBook() {
+
+        System.out.println("Enter Book Id");
+        int bookId = readInput.nextInt();
+
+        var message = bibliotecaPresenter.ReturnBook(bookId);
+
+        System.out.println(message);
+
+        showMenuOptions();
+    }
+
     static void printEmptyLine() {
         System.out.println();
     }
@@ -106,7 +121,8 @@ public class BibliotecaApp {
 
     enum MenuOptionEnum {
         SHOW_BOOKS,
-        CHECKOUT_BOOK
+        CHECKOUT_BOOK,
+        RETURN_BOOK
     }
 
 

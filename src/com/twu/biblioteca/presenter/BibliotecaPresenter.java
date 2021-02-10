@@ -57,7 +57,7 @@ public class BibliotecaPresenter implements IBibliotecaPresenter {
             return "Thank you for returning the book";
         }
 
-        return null;
+        return "That is not a valid book to return.";
     }
 }
 

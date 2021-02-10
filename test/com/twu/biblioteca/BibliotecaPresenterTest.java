@@ -99,5 +99,14 @@ public class BibliotecaPresenterTest {
         Assert.assertEquals(result, "Thank you for returning the book");
     }
 
+    @Test
+    public void ShouldReturnUnsucessMessageWhenReturnABook() {
+        int bookId = 5;
+
+        var result = bibliotecaPresenter.ReturnBook(bookId);
+
+        Assert.assertEquals(result, "That is not a valid book to return.");
+    }
+
 
 }
