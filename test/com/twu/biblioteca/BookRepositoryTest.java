@@ -27,4 +27,12 @@ public class BookRepositoryTest {
 
         Assert.assertTrue(result);
     }
+
+    @Test
+    public void ShouldReturnABook() {
+        int bookId = 1;
+        var result = bookRepository.ReturnBook(bookId);
+
+        Assert.assertTrue(result);
+    }
 }

@@ -36,6 +36,18 @@ public class BookRepository implements IBookRepository{
         return false;
     }
 
+    @Override
+    public boolean ReturnBook(int bookId) {
+        var returnBook = books.stream().filter(book -> book.getId() == bookId).findFirst().orElse(null);
+
+        if(returnBook != null) {
+            returnBook.Availability = true;
+            return true;
+        }
+
+        return false;
+    }
+
     private List<Book> GenerateList() {
         List<Author> authors = new ArrayList<>();
 
