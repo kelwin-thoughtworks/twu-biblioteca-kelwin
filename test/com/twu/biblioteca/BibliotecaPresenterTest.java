@@ -81,5 +81,14 @@ public class BibliotecaPresenterTest {
         Assert.assertEquals(result, "Thank you! Enjoy the book");
     }
 
+    @Test
+    public void ShouldReturnUnSuccessMessageWhenCheckoutABook() {
+        int bookId = 4;
+
+        var result = bibliotecaPresenter.CheckoutBook(bookId);
+
+        Assert.assertEquals(result, "Sorry, that book is not available");
+    }
+
 
 }

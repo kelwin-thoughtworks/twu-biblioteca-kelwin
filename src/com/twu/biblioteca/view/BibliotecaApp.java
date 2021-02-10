@@ -89,7 +89,9 @@ public class BibliotecaApp {
         System.out.println("Enter Book Id");
         int bookId = readInput.nextInt();
 
-        bibliotecaPresenter.CheckoutBook(bookId);
+        var message = bibliotecaPresenter.CheckoutBook(bookId);
+
+        System.out.println(message);
 
         showMenuOptions();
     }
