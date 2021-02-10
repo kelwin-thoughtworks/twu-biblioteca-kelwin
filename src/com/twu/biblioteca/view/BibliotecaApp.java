@@ -27,9 +27,10 @@ public class BibliotecaApp {
     static void showMenuOptions() {
         var menuOptions = bibliotecaPresenter.GetMenuOptions();
 
+        printEmptyLine();
+
         for (var menuOption: menuOptions) {
-            printEmptyLine();
-           System.out.println(menuOption.getId() + " - " + menuOption.getDescription());
+            System.out.println(menuOption.getId() + " - " + menuOption.getDescription());
         }
 
         enterMenuOption();
@@ -71,6 +72,8 @@ public class BibliotecaApp {
         for (var book: books) {
             System.out.println(book.getName() + " - " + book.getAuthors().stream().findFirst().get().getName() + " - " + book.getReleaseDate());
         }
+
+        showMenuOptions();
     }
 
     static void printEmptyLine() {

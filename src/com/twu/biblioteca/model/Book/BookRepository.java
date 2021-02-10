@@ -13,13 +13,16 @@ public class BookRepository implements IBookRepository{
 
     private List<Book> books = new ArrayList<>();
 
+    public BookRepository() {
+        generateList();
+    }
+
     @Override
     public List<Book> getBooks() {
-        generateList();
         return books;
     }
 
-    private void generateList() {
+    private List<Book> generateList() {
         List<Author> authors = new ArrayList<>();
 
         authors.add(new Author("Yuval Noah Harari"));
@@ -34,5 +37,7 @@ public class BookRepository implements IBookRepository{
 
         authors.add(new Author("Trevor Noah"));
         books.add(new Book("Born a Crime", authors, LocalDate.of( 2015 , Month.JULY , 1 )));
+
+        return books;
     }
 }
