@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class BibliotecaApp {
 
     public static IBibliotecaPresenter bibliotecaPresenter = new BibliotecaPresenter();
+    public static Scanner readInput = new Scanner(System.in);
 
     public static void main(String[] args) {
         startApp();
@@ -30,10 +31,31 @@ public class BibliotecaApp {
             printEmptyLine();
            System.out.println(menuOption.getId() + " - " + menuOption.getDescription());
         }
+
+        selectMenuOption();
+    }
+
+    static void selectMenuOption() {
+        printEmptyLine();
+
+        System.out.println("Select an Option");
+
+        int selectedOption = readInput.nextInt();
+
+        String checkIfOptionIsValid = bibliotecaPresenter.CheckIfOptionIsValid(selectedOption);
+
+        if(checkIfOptionIsValid != null)  {
+            System.out.println(checkIfOptionIsValid);
+        }
+
     }
 
     static void printEmptyLine() {
         System.out.println();
+    }
+
+    static void clearScreen() {
+
     }
 
 }

@@ -19,5 +19,17 @@ public class BibliotecaPresenter implements IBibliotecaPresenter {
     public List<MenuOption> GetMenuOptions() {
         return menuOptionRepository.getMenuOptions();
     }
+
+    @Override
+    public String CheckIfOptionIsValid(int option) {
+        var menuOptions = menuOptionRepository.getMenuOptions();
+        var searchOption = menuOptions.stream().filter(menuOption -> menuOption.getId() == option).findFirst().orElse(null);
+
+        if(searchOption == null) {
+            return "Please select a valid option!";
+        }
+
+        return null;
+    }
 }
 

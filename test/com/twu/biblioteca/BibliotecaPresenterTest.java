@@ -26,4 +26,13 @@ public class BibliotecaPresenterTest {
 
         Assert.assertNotNull(searchOption);
     }
+
+    @Test
+    public void ShouldNotifyWhenOptionIsInvalid() {
+        var option = 78;
+        var result = bibliotecaPresenter.CheckIfOptionIsValid(option);
+
+        Assert.assertEquals(result, "Please select a valid option!");
+
+    }
 }

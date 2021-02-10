@@ -7,4 +7,5 @@ import java.util.List;
 public interface IBibliotecaPresenter {
     String GetWelcomeMessage();
     List<MenuOption> GetMenuOptions();
+    String CheckIfOptionIsValid(int option);
 }
