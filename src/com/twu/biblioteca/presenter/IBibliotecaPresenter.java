@@ -11,4 +11,5 @@ public interface IBibliotecaPresenter {
     String CheckIfOptionIsValid(int option);
     List<Book> GetBooks();
     String CheckoutBook(int bookId);
+    String ReturnBook(int bookId);
 }

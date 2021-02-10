@@ -50,5 +50,14 @@ public class BibliotecaPresenter implements IBibliotecaPresenter {
 
         return "Sorry, that book is not available";
     }
+
+    @Override
+    public String ReturnBook(int bookId) {
+        if(bookRepository.ReturnBook(bookId)) {
+            return "Thank you for returning the book";
+        }
+
+        return null;
+    }
 }
 

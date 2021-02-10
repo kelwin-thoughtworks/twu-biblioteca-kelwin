@@ -12,6 +12,7 @@ public class MenuOptionRepository implements IMenuOptionRepository {
 
         menuOptions.add(new MenuOption(1,"List Of Books"));
         menuOptions.add(new MenuOption(2,"Checkout a Book"));
+        menuOptions.add(new MenuOption(3,"Return a Book"));
 
         return menuOptions;
     }
