@@ -30,7 +30,7 @@ public class BookRepositoryTest {
 
     @Test
     public void ShouldReturnABook() {
-        int bookId = 1;
+        int bookId = 4;
         var result = bookRepository.ReturnBook(bookId);
 
         Assert.assertTrue(result);

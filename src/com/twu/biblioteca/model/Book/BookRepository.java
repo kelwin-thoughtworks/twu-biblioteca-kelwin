@@ -28,7 +28,7 @@ public class BookRepository implements IBookRepository{
 
         var checkoutBook = books.stream().filter(book -> book.getId() == bookId).findFirst().orElse(null);
 
-        if(checkoutBook != null) {
+        if(checkoutBook != null && checkoutBook.getAvailability()) {
             checkoutBook.Availability = false;
             return true;
         }
@@ -40,7 +40,7 @@ public class BookRepository implements IBookRepository{
     public boolean ReturnBook(int bookId) {
         var returnBook = books.stream().filter(book -> book.getId() == bookId).findFirst().orElse(null);
 
-        if(returnBook != null) {
+        if(returnBook != null && returnBook.getAvailability() == false ) {
             returnBook.Availability = true;
             return true;
         }
@@ -63,6 +63,14 @@ public class BookRepository implements IBookRepository{
 
         authors.add(new Author("Trevor Noah"));
         books.add(new Book(3,"Born a Crime", authors, LocalDate.of( 2015 , Month.JULY , 1 )));
+
+        authors.clear();
+
+        authors.add(new Author("J.K Rowling"));
+        var newUnavailableBook = new Book(4,"Harry Potter And The Socerer Stone", authors, LocalDate.of( 2015 , Month.JULY , 1 ));
+        newUnavailableBook.setAvailability(false);
+
+        books.add(newUnavailableBook);
 
         return books;
     }

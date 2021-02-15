@@ -118,9 +118,7 @@ public class BibliotecaApp {
         System.out.println();
     }
 
-    void clearScreen() {
-
-    }
+    void clearScreen() { }
 
     enum MenuOptionEnum {
         SHOW_BOOKS,

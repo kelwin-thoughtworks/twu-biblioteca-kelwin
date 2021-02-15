@@ -92,7 +92,7 @@ public class BibliotecaPresenterTest {
 
     @Test
     public void ShouldReturnSucessMessageWhenReturnABook() {
-        int bookId = 1;
+        int bookId = 4;
 
         var result = bibliotecaPresenter.ReturnBook(bookId);
 
